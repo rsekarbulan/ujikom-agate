@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hunger: 200
+  particlesPrefab: {fileID: 4637204173943018685, guid: 4287d3e49f43c4b46a860cc40a6393ab, type: 3}
   score: 1
 --- !u!65 &114693891036796897
 BoxCollider:

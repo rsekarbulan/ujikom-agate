@@ -7,6 +7,7 @@ public class AnimalHunger : MonoBehaviour
     public float hunger;
     private GameObject player;
     private Stats stats;
+    public GameObject particlesPrefab;
 
     public int score;
 
@@ -36,7 +37,19 @@ public class AnimalHunger : MonoBehaviour
         if (hunger <= 0)
         {
             Destroy(gameObject);
+            PlayParticles();
             stats.AddScore(score);
         }
+    }
+
+    private void PlayParticles()
+    {
+        GameObject particlesInstance = Instantiate(particlesPrefab);
+        particlesInstance.transform.position = transform.position;
+        
+        ParticleSystem parts = particlesInstance.GetComponent<ParticleSystem>();
+        parts.Play();
+
+        Destroy(particlesInstance, 2f);
     }
 }
