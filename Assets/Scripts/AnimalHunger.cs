@@ -5,11 +5,16 @@ using UnityEngine;
 public class AnimalHunger : MonoBehaviour
 {
     public float hunger;
+    private GameObject player;
+    private Stats stats;
+
+    public int score;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
+        stats = player.GetComponent<Stats>();
     }
 
     // Update is called once per frame
@@ -19,10 +24,19 @@ public class AnimalHunger : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    { 
+        DecreaseHunger();
+        Debug.Log("aa");   
+    }
+
+    private void DecreaseHunger()
     {
-        if (other.gameObject.CompareTag("Food"))
+        hunger -= 25;
+
+        if (hunger <= 0)
         {
-            Debug.Log("aa");
+            Destroy(gameObject);
+            stats.AddScore(score);
         }
     }
 }

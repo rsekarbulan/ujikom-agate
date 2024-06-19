@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
             GameObject foodInstance = Instantiate(foodPrefab);
 
-            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f);
+            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z + 1f);
             foodInstance.transform.position = spawnPos;
 
             Destroy(foodInstance, 3f);

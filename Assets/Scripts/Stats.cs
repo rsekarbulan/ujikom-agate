@@ -7,7 +7,8 @@ public class Stats : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
-    //public GameObject gameOver;
+    public GameObject ui;
+    public GameObject gameOver;
 
     public int score;
     public float timer;
@@ -16,6 +17,9 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOver.SetActive(false);
+        ui.SetActive(true);
+
         score = 0;
         timer = 60;
     }
@@ -38,7 +42,7 @@ public class Stats : MonoBehaviour
         }
         else
         {
-            //GameOver();
+            GameOver();
             Debug.Log("over");
         }
     }
@@ -48,8 +52,9 @@ public class Stats : MonoBehaviour
         score += score + add;
     }
 
-    /*private void GameOver()
+    private void GameOver()
     {
+        ui.SetActive(false);
         gameOver.SetActive(true);
-    }*/
+    }
 }
