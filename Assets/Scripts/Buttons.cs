@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public GameObject clickAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,14 @@ public class Buttons : MonoBehaviour
     public void ToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ClickButton()
+    {
+        GameObject clickInstance = Instantiate(clickAudio);
+        AudioSource source = clickInstance.GetComponent<AudioSource>();
+        source.Play();
+
+        Destroy(clickInstance, 2f);
     }
 }

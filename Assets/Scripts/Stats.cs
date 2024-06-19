@@ -11,6 +11,7 @@ public class Stats : MonoBehaviour
 
     public int score;
     public float timer;
+    private float timerInt;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,9 @@ public class Stats : MonoBehaviour
     void Update()
     {
         Timer();
+
+        scoreText.text = "Score: " + score;
+        timerText.text = "Timer: " + timerInt.ToString();
     }
 
     private void Timer()
@@ -30,7 +34,7 @@ public class Stats : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-            Mathf.RoundToInt(timer);
+            timerInt = Mathf.Ceil(timer);
         }
         else
         {
